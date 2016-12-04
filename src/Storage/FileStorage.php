@@ -55,10 +55,7 @@ class FileStorage implements StorageInterface
 
         foreach ($action->hears() as $command) {
             $tokens = $this->tokenizer->tokenize($command);
-            $indexOfCommands[] = [
-                'tokens' => $tokens,
-                'hashes' => $this->minHashCalc->calculate($tokens),
-            ];
+            $indexOfCommands[] = $this->minHashCalc->calculate($tokens);
         }
         $this->models[$action->getIdentifier()] = $indexOfCommands;
         file_put_contents($this->fileName, '<?php return ' . var_export($this->models, true) . ';');
@@ -115,7 +112,7 @@ class FileStorage implements StorageInterface
         $candidates = [];
         foreach ($models as $action => $indexes) {
             foreach ($indexes as $index) {
-                $similarity = $this->similarity->similarity($index['hashes'], $hashes);
+                $similarity = $this->similarity->similarity($index, $hashes);
                 if ($similarity > $this->threshold) {
                     $candidates[] = [
                         'similarity' => $similarity,
