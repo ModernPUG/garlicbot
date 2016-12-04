@@ -6,6 +6,7 @@ use ModernPUG\GarlicBot\Contracts\StorageInterface;
 use ModernPUG\GarlicBot\Contracts\TokenizerInterface;
 use ModernPUG\GarlicBot\Math\JaccardSimilarity;
 use ModernPUG\GarlicBot\Math\MinHashCalculator;
+use Psr\Log\LoggerInterface;
 
 class FileStorage implements StorageInterface
 {
@@ -27,14 +28,22 @@ class FileStorage implements StorageInterface
     /** @var array */
     protected $models = [];
     
-    public function __construct(TokenizerInterface $tokenizer, MinHashCalculator $minHashCalc, JaccardSimilarity $similarity)
-    {
+    /** @var \Psr\Log\LoggerInterface */
+    protected $logger;
+    
+    public function __construct(
+        TokenizerInterface $tokenizer,
+        MinHashCalculator $minHashCalc,
+        JaccardSimilarity $similarity,
+        LoggerInterface $logger = null
+    ) {
         $this->tokenizer = $tokenizer;
         $this->minHashCalc = $minHashCalc;
         $this->similarity = $similarity;
         if (file_exists($this->fileName)) {
             $this->models = require $this->fileName;
         }
+        $this->logger = $logger;
     }
 
     /**
@@ -82,14 +91,17 @@ class FileStorage implements StorageInterface
         $tokens = $this->tokenizer->tokenize($keyword);
         $hashes = $this->minHashCalc->calculate($tokens);
 
-        echo "\n";
-        echo "input tokens : [", implode(', ', $tokens) ,"]\n";
-        echo "input hashes : [", implode(', ', $hashes), "]\n\n";
+        if ($this->logger) {
+            $this->logger->debug("input tokens : [" . implode(', ', $tokens) . "]");
+            $this->logger->debug("input hashes : [" . implode(', ', $hashes) . "]");
+        }
 
         $candidates = $this->getActionCandidates($this->models, $hashes);
 
-        foreach ($candidates as $candidate) {
-            echo sprintf("%0.3f%% ", $candidate['similarity'] * 100), $candidate['action'], "\n";
+        if ($this->logger) {
+            foreach ($candidates as $candidate) {
+                $this->logger->debug(sprintf("%0.3f%% ", $candidate['similarity'] * 100) . $candidate['action']);
+            }
         }
 
         if (count($candidates)) {

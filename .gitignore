@@ -1,3 +1,5 @@
 /.idea
 /vendor
 /.garlicbot.php
+/.garlicbot.learn.php
+/garlicbot.log

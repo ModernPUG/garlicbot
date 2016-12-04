@@ -3,7 +3,6 @@ namespace ModernPUG\GarlicBot\Math;
 
 /**
  * https://github.com/sjhorn/node-minhash/blob/master/lib/minhash.js * 
- * @package Oponiti\Bottle\Math
  */
 class MinHashCalculator
 {
