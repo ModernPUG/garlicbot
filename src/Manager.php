@@ -87,21 +87,10 @@ class Manager
             $action = $this->storage->search($text);
             if ($action) {
                 $this->logger->debug("[{$action} 실행됨.]");
-                $this->responseText(
-                    $client,
-                    $payload['channel'],
-                    $this->actions[$action]->response()
-                );
+                $this->actions[$action]->action($payload);
             } else {
                 $this->logger->debug("[실행할 명령어가 없음.]");
             }
-        });
-    }
-    
-    protected function responseText(RealTimeClient $client, $channel, $text)
-    {
-        $client->getChannelGroupOrDMByID($channel)->then(function (ChannelInterface $channel) use ($client, $text) {
-            $client->send($text, $channel);
         });
     }
 }

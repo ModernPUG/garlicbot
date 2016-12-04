@@ -26,7 +26,7 @@ interface ActionInterface
     public function hears(): array;
 
     /**
-     * @return string
+     * @param $payload
      */
-    public function response(): string;
+    public function action($payload = null);
 }
