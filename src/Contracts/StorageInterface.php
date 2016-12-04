@@ -18,7 +18,7 @@ interface StorageInterface
      * @param string $keyword
      * @return string
      */
-    public function search(string $keyword): string;
+    public function search(string $keyword);
 
     /**
      * @param \ModernPUG\GarlicBot\Contracts\ActionInterface $action

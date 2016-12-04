@@ -86,7 +86,7 @@ class FileStorage implements StorageInterface
     /**
      * {@inheritdoc}
      */
-    public function search(string $keyword): string
+    public function search(string $keyword)
     {
         $tokens = $this->tokenizer->tokenize($keyword);
         $hashes = $this->minHashCalc->calculate($tokens);
