@@ -40,6 +40,14 @@ class Manager
         $this->actions[$action->getIdentifier()] = $action;
         return $this;
     }
+
+    /**
+     * @return \ModernPUG\GarlicBot\Contracts\ActionInterface[]
+     */
+    public function getActions(): array
+    {
+        return $this->actions;
+    }
     
     /**
      * @param \Slack\RealTimeClient $client
