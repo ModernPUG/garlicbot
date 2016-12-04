@@ -9,7 +9,7 @@
         "coderstephen/slack-client": "^0.2.5",
         "wandu/di": "3.1.x-dev",
         "wandu/config": "3.1.x-dev",
-        "wandu/mecab": "^0.1.0",
+        "wandu/mecab": "^0.2.0",
         "monolog/monolog": "^1.21",
         "symfony/console": "^3.1"
     },

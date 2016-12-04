@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "379c05924d9139f3b33b9fd333a6c7cf",
-    "content-hash": "e8467d899d945bc4fb65da08edc38b9d",
+    "hash": "b46b4c037e5e79b014e3ffc82b3f7e8a",
+    "content-hash": "65adee25dcba63b70349183c39840e63",
     "packages": [
         {
             "name": "coderstephen/slack-client",
@@ -1068,16 +1068,16 @@
         },
         {
             "name": "wandu/mecab",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Wandu/Mecab.git",
-                "reference": "67665e575fa57048ece4d6fd2ca61a84c991bfec"
+                "reference": "42b9293d14e2d573653d6a05bb52559ee25206b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Wandu/Mecab/zipball/67665e575fa57048ece4d6fd2ca61a84c991bfec",
-                "reference": "67665e575fa57048ece4d6fd2ca61a84c991bfec",
+                "url": "https://api.github.com/repos/Wandu/Mecab/zipball/42b9293d14e2d573653d6a05bb52559ee25206b0",
+                "reference": "42b9293d14e2d573653d6a05bb52559ee25206b0",
                 "shasum": ""
             },
             "require": {
@@ -1102,7 +1102,7 @@
             "keywords": [
                 "mecab"
             ],
-            "time": "2016-11-22 07:57:31"
+            "time": "2016-12-04 15:30:24"
         },
         {
             "name": "wandu/reflection",
