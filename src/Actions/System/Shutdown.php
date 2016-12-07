@@ -19,6 +19,7 @@ class Shutdown extends ActionAbstract
             '마늘아 나갔다와',
             '마늘씨 나가',
             '마늘아 꺼져',
+            '마늘아 사라져',
             '마늘님 나가요',
             '마늘 나가',
         ];
