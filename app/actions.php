@@ -7,4 +7,5 @@ return [
     ModernPUG\GarlicBot\Actions\Ping::class,
     ModernPUG\GarlicBot\Actions\Hello::class,
     ModernPUG\GarlicBot\Actions\RecommendFood::class,
+    ModernPUG\GarlicBot\Actions\HelloWorld::class,
 ];
